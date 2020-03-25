@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Demos</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/zones-demo">Zones</a>
+      <a mat-list-item routerLink="/cd-tree">Change Detector Tree</a>
+      <a mat-list-item routerLink="/cd-tree-onp">Change Detection OnPush</a>
+      <a mat-list-item routerLink="/cd-ref">CDRef</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div class="sidenav-container__header">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <img class="sidenav-container__header__logo" alt="Modus Logo" src="assets/logos/Modus-Mark-White.svg">
+        <span class="sidenav-container__header__app-name">ng-change-detection</span>
+        <span class="sidenav-container__header__name">ahsan ayaz</span>
+      </div>
+    </mat-toolbar>
+    <div class="sidenav-container__app-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
