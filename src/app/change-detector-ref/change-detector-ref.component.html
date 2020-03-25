@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="header__text">
+    Tap the button below to trigger change detection. Repeat until you're tired.
+  </div>
+  <div class="header__actions">
+    <button mat-raised-button color="primary" (click)="triggerTap()">Trigger</button>
+    <button mat-raised-button color="accent" (click)="randomizeDepths(tree)">Randomize Depths</button>
+    <button mat-raised-button color="dark" (click)="resetTree()">Reset</button>
+  </div>
+  <div class="header__text">
+    Detach CDRefs
+  </div>
+  <div class="header__actions">
+    <button mat-raised-button color="primary" (click)="disableLeftTree()">Disable Left Tree</button>
+    <button mat-raised-button color="primary" (click)="disableRightTree()">Disable Right Tree</button>
+    <button mat-raised-button color="primary" (click)="disableRightTreeNestedNode()">Disable Right Nested Node</button>
+  </div>
+  <mat-slide-toggle [(ngModel)]="options.showSpinners">Show Progress Spinners!</mat-slide-toggle>
+</div>
+
+<app-tree-node [node]="tree" [showSpinner]="options.showSpinners" *ngIf="!performingChange">
+</app-tree-node>
+

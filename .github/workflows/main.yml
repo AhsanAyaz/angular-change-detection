@@ -1,0 +1,21 @@
+name: "build-deploy"
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - master
+      - 'releases/*'
+
+jobs:
+  build_and_deploy: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: 'Deploy demo app using action'
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.1.0
+      with:
+        github_access_token: ${{ secrets.ACCESS_TOKEN }}
+        build_configuration: # The branch the action should deploy from.
+        base_href: /angular-change-detection/
+        deploy_branch: gh-pages # The branch the action should deploy to.
+gi

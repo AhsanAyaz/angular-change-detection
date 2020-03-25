@@ -1,0 +1,22 @@
+<div class="zones-demo">
+  <h4 class="text-center">
+    Change Detection - NgZone Demo
+  </h4>
+  <div class="toggle-container text-center">
+    <button mat-raised-button color="primary" (click)="switchProcessingContext(boxInner) ">
+      Run {{!isRunningOutsideAngular? 'Outside' : 'Inside'}} Angular Zone</button>
+    <button mat-raised-button color="dark" (click)="toggleRunWithDelay()" *ngIf="isRunningOutsideAngular">
+      {{!shouldRunWithDelay? 'Update view with delay' : 'Don\'t update view'}} </button>
+  </div>
+  <div class="text-center update-delay-hint" [style.display]="shouldRunWithDelay? 'block': 'none'">
+    Move mouse constantly and then stop to see the changes on view
+  </div>
+  <div class="box-inner box-outside-zone" [style.display]="isRunningOutsideAngular? 'block': 'none'" #boxInner>
+    <app-mini-box [coordinates]="coordinates"></app-mini-box>
+  </div>
+  <div class="box-inner" (mousemove)="onMouseMove($event)" [style.display]="!isRunningOutsideAngular? 'block': 'none'">
+    <app-mini-box [coordinates]="coordinates"></app-mini-box>
+  </div>
+  <div class="text-heading">Running {{isRunningOutsideAngular? 'outside' : 'inside'}} NgZone</div>
+  <div class="text-heading">Coordinates: X = {{coordinates.position_x}}, Y = {{coordinates.position_y}}</div>
+</div>

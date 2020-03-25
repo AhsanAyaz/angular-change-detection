@@ -1,0 +1,26 @@
+<div class="tree-node">
+  <div class="tree-node__link" *ngIf="node.depth !== 1"></div>
+  <div #elNode class="tree-node__el" (click)="nodeTap()">
+    <div class="tree-node__el__text">
+      {{node.depth}}
+    </div>
+    <mat-progress-spinner
+    [diameter]="60"
+    *ngIf="showSpinner"
+    class="tree-node__el__spinner"
+    [mode]="'determinate'"
+    [value]="progressVal">
+    </mat-progress-spinner>
+  </div>
+  <div class="tree-node__link-bottom" *ngIf="node?.children.length"></div>
+  <div class="tree-node__children-wrapper" *ngIf="node?.children.length">
+    <div class="tree-node__children-wrapper__bottom-border"></div>
+    <div class="tree-node__children-wrapper__children">
+      <app-tree-node
+        *ngFor="let n of node.children"
+        [node]="n"
+        [showSpinner]="showSpinner">
+      </app-tree-node>
+    </div>
+  </div>
+</div>

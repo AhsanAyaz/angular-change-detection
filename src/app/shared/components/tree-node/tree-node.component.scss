@@ -1,0 +1,59 @@
+$node-size: 60px;
+$node-bg: #333;
+$node-links-color: #ccc;
+$node-cd-hightlight-color: #51b9a3ff;
+
+.tree-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  &__link, &__link-bottom  {
+    height: 30px;
+    width: 1px;
+    background-color: $node-links-color;
+  }
+  &__el {
+    cursor: pointer;
+    width: $node-size;
+    height: $node-size;
+    background: $node-bg;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &__text {
+      color: #fff;
+    }
+    &--on-changes {
+      background: $node-cd-hightlight-color;
+    }
+    &__spinner {
+      position: absolute;
+      width: 100% !important;
+      height: 100% !important;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__children-wrapper {
+    &__bottom-border {
+      width: 100%;
+      height: 1px;
+      background-color: $node-links-color;
+    }
+    &__children {
+      display: flex;
+      flex-direction: row;
+      ::ng-deep>* {
+        display: block;
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
