@@ -18,3 +18,4 @@ jobs:
         build_configuration: # The branch the action should deploy from.
         base_href: /angular-change-detection/
         deploy_branch: gh-pages # The branch the action should deploy to.
+        build_folder: dist/ng-change-detection # The folder the action should deploy.
