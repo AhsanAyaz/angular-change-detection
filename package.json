@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^9.0.7",
     "@angular/router": "^9.0.7",
     "core-js": "^3.6.4",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.19",
     "rxjs": "^6.0.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
